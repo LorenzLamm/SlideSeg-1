@@ -126,7 +126,7 @@ def writekeys(filename, annotations):
     name = '{0}_{1}'.format(os.path.splitext(filename)[0], 'Details')
     file = open("{0}{1}.txt".format(dest, name), "w+")
 
-    for key, value in annotations.iteritems():
+    for key, value in annotations.items():
         keyline = "Key: {0}".format(key)
         file.write(keyline)
         file.write(("Mask_Color: {0}\n".format(value).rjust(50 - len(keyline))))
@@ -144,7 +144,7 @@ def writeimagelist(filename, image_dictionary):
     name = '{0}_{1}'.format(os.path.splitext(filename)[0], 'Details')
     file = open("{0}{1}.txt".format(dest, name), "a")
 
-    for key, value in image_dictionary.iteritems():
+    for key, value in image_dictionary.items():
         keyline = "\nKey: {0}\n".format(key)
         file.write(keyline)
         for name in value:
@@ -195,7 +195,7 @@ def writeannotations(annotation_key, annotations):
     """
     file = open(annotation_key, "w+")
 
-    for key, value in sorted(annotations.iteritems()):
+    for key, value in sorted(annotations.items()):
         keyline = "Key: {0}".format(key)
         file.write(keyline)
         file.write(("Mask_Color: {0}\n".format(value).rjust(65 - len(keyline))))
@@ -456,7 +456,7 @@ def getchips(levels, dims, chip_size, overlap, mask, annotations, filename, suff
                     keys = []
 
                     # Make sure annotation key contains value
-                    for key, value in annotations.iteritems():
+                    for key, value in annotations.items():
                         for pixel in pix_list:
                             if int(pixel) == int(value[0]):
                                 keys.append(key)
@@ -523,7 +523,7 @@ def run(parameters, filename):
     # Save chips and masks
     print('Saving chips... {0} total chips'.format(len(chip_dictionary)))
 
-    for filename, value in tqdm.tqdm(chip_dictionary.iteritems()):
+    for filename, value in tqdm.tqdm(chip_dictionary.items()):
         keys = value[0]
         i = value[1]
         col = value[2]
