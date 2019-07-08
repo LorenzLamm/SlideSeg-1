@@ -338,7 +338,7 @@ def checksave(save_all, pix_list, save_ratio, save_count_annotated, save_count_b
         save = True
     elif save_count_annotated / float(save_count_blank) > save_ratio:
         save = True
-    elif len(filter(lambda x: x > 0, pix_list)) > 0:
+    elif len(list(filter(lambda x: x > 0, pix_list))) > 0:
         save = True
     else:
         save = False
