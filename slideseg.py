@@ -254,7 +254,7 @@ def attachtags(path, keys):
     if os.path.splitext(path)[1] == ".png":
         pass
     else:
-        import pexif
+        import piexif as pexif
 
         metadata = pexif.JpegFile.fromFile(path)
         str = ' '.join(keys)
